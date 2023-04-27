@@ -72,5 +72,13 @@ public class WelcomeTest {
 		assertEquals(attendu, actuel);
 	}
 	
+	@Test
+	public void test_cri_plusieurs_noms() {
+		String prenom ="Amy,BOB,Jerry";
+		String attendu ="Hello, Amy, Jerry. AND HELLO BOB!";
+		String actuel = M.welcome(prenom);
+		assertEquals(attendu, actuel);
+	}
+	
 
 }
