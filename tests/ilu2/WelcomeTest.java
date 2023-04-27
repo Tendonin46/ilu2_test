@@ -17,7 +17,13 @@ public class WelcomeTest {
 		Welcome M=new Welcome();
 	}
 	
-	
+	@Test
+	public void test_2noms_virgule() {
+		String prenom ="amy,bob";
+		String attendu ="Hello, Amy,bob";
+		String actuel = M.welcome(prenom);
+		assertEquals(attendu, actuel);
+	}
 	 @Test
 	public void test_hello() {
 		String prenom = "bob";
@@ -57,11 +63,14 @@ public class WelcomeTest {
         assertEquals(attendu, actuel);
 	}
 	
+	
 	@Test
-	public void test_2noms_virgule() {
-		String prenom ="amy,bob";
-		String attendu ="Hello, Amy, Bob";
+	public void test_plusieurs_noms() {
+		String prenom ="amy,bob,jerry";
+		String attendu ="Hello,  amy, bob, and jerry";
 		String actuel = M.welcome(prenom);
 		assertEquals(attendu, actuel);
 	}
+	
+
 }
