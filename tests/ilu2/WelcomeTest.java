@@ -23,6 +23,7 @@ public class WelcomeTest {
 		String attendu ="Hello, Amy,bob";
 		String actuel = M.welcome(prenom);
 		assertEquals(attendu, actuel);
+		assertEquals("Hello, Frank,max",M.welcome("frank,max"));
 	}
 	 @Test
 	public void test_hello() {
@@ -30,6 +31,8 @@ public class WelcomeTest {
         String attendu = "Hello, Bob";
         String actuel = M.welcome(prenom);
         assertEquals(attendu, actuel);
+        assertEquals("Hello, John",M.welcome("john"));
+        assertEquals("Hello, Bjorn",M.welcome("bjorn"));
 	}
 	@Test
 	public void test_hello_null() {
@@ -61,6 +64,7 @@ public class WelcomeTest {
         String attendu = "HELLO, JERRY!";
         String actuel = M.welcome(prenom);
         assertEquals(attendu, actuel);
+        assertEquals("HELLO, YVAN!",M.welcome("YVAN"));
 	}
 	
 	
@@ -80,5 +84,9 @@ public class WelcomeTest {
 		assertEquals(attendu, actuel);
 	}
 	
+	//@Test
+	//public void test_ajout_end() {
+		//assertEquals("Hello, bob, jerry AND HELLO AMY AND JACK!",M.welcome("bob, AMY, jerry, JACK"));
+	//}
 
 }
