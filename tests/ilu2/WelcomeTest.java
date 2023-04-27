@@ -56,4 +56,12 @@ public class WelcomeTest {
         String actuel = M.welcome(prenom);
         assertEquals(attendu, actuel);
 	}
+	
+	@Test
+	public void test_2noms_virgule() {
+		String prenom ="amy,bob";
+		String attendu ="Hello, Amy, Bob";
+		String actuel = M.welcome(prenom);
+		assertEquals(attendu, actuel);
+	}
 }
