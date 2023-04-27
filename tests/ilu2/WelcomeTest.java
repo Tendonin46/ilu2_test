@@ -49,4 +49,11 @@ public class WelcomeTest {
         assertEquals(attendu, actuel);
 	}
 	
+	@Test
+	public void test_hello_CRI() {
+		String prenom ="JERRY";
+        String attendu = "HELLO, JERRY!";
+        String actuel = M.welcome(prenom);
+        assertEquals(attendu, actuel);
+	}
 }
