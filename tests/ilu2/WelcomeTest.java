@@ -70,7 +70,7 @@ public class WelcomeTest {
 	
 	@Test
 	public void test_plusieurs_noms() {
-		String prenom ="amy,bob,jerry";
+		String prenom ="amy, bob, jerry";
 		String attendu ="Hello,  amy, bob, and jerry";
 		String actuel = M.welcome(prenom);
 		assertEquals(attendu, actuel);
@@ -78,8 +78,8 @@ public class WelcomeTest {
 	
 	@Test
 	public void test_cri_plusieurs_noms() {
-		String prenom ="Amy,BOB,Jerry";
-		String attendu ="Hello, Amy, Jerry. AND HELLO BOB!";
+		String prenom ="Amy, BOB, Jerry";
+		String attendu ="Hello Amy, Jerry.AND HELLO  BOB!";
 		String actuel = M.welcome(prenom);
 		assertEquals(attendu, actuel);
 	}

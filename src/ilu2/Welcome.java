@@ -92,6 +92,6 @@ public class Welcome {
 	}
 
 	public static void main (String[] args) {
-		System.out.println(welcome("bob, AMY, jerry, JACK"));
+		System.out.println(welcome("Amy, BOB, Jerry"));
 	}
 }
