@@ -17,14 +17,14 @@ public class WelcomeTest {
 		Welcome M=new Welcome();
 	}
 	
-	@Test
-	public void test_2noms_virgule() {
-		String prenom ="amy,bob";
-		String attendu ="Hello, Amy,bob";
-		String actuel = M.welcome(prenom);
-		assertEquals(attendu, actuel);
-		assertEquals("Hello, Frank,max",M.welcome("frank,max"));
-	}
+//	@Test
+//	public void test_2noms_virgule() {
+//		String prenom ="amy,bob";
+//		String attendu ="Hello, Amy,bob";
+//		String actuel = M.welcome(prenom);
+//		assertEquals(attendu, actuel);
+//		assertEquals("Hello, Frank,max",M.welcome("frank,max"));
+//	}
 	 @Test
 	public void test_hello() {
 		String prenom = "bob";
@@ -71,9 +71,12 @@ public class WelcomeTest {
 	@Test
 	public void test_plusieurs_noms() {
 		String prenom ="amy, bob, jerry";
-		String attendu ="Hello,  amy, bob, and jerry";
+		String attendu ="Hello, Amy, Bob and Jerry";
 		String actuel = M.welcome(prenom);
 		assertEquals(attendu, actuel);
+		assertEquals("Hello, Amy, Bob, Jerry and Vinn", M.welcome("amy, bob, jerry,vinn"));
+		assertEquals("Hello, Amy, Bob, Jerry, Vinn and Rene", M.welcome("amy, bob, jerry,vinn,rene"));
+		
 	}
 	
 	@Test
@@ -82,11 +85,18 @@ public class WelcomeTest {
 		String attendu ="Hello Amy, Jerry.AND HELLO  BOB!";
 		String actuel = M.welcome(prenom);
 		assertEquals(attendu, actuel);
+		assertEquals("Hello, Amy, Jerry,YVES AND HELLO BOB!", M.welcome("Amy, BOB, Jerry,YVES"));
+		assertEquals("Hello, Amy, Jerry,YVES,DENIS AND HELLO BOB!", M.welcome("Amy, BOB, Jerry,YVES,DENIS"));
 	}
 	
 	//@Test
 	//public void test_ajout_end() {
 		//assertEquals("Hello, bob, jerry AND HELLO AMY AND JACK!",M.welcome("bob, AMY, jerry, JACK"));
 	//}
-
+	@Test
+	public void test_espaces_inutiles() {
+		assertEquals("Hello, Amy and Bob", M.welcome("amy,          bob"));
+		assertEquals("Hello, Amy, Bob and Jerry", M.welcome("amy,        bob, jerry"));
+		assertEquals("Hello, Amy, Bob, Jerry and John", M.welcome("amy, bob,jerry,         john"));
+	}
 }

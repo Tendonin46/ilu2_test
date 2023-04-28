@@ -3,6 +3,7 @@ package ilu2;
 public class Welcome {
 	public static String welcome(String prenom) {
 		StringBuilder chaine = new StringBuilder("Hello, ");
+		boolean yodaPresent = false;
 		int x=0;
 		
 		if (prenom == null || prenom.trim().isEmpty()) {
@@ -13,34 +14,36 @@ public class Welcome {
 		String[] tab=prenom.split(",");
 		
 		for(int j=0;j<tab.length;j++) {
-			
+			 if(tab[j].equalsIgnoreCase("yoda")) {
+		        	yodaPresent = true;
+		     }
 	        if (tab[j].equals(tab[j].toUpperCase())) {
 	        	b=true;x++;
 	        }
+	       
+	       
 		}
+	
+  	
+		
 		if (prenom.equals(prenom.toUpperCase())) {
             return "HELLO, " + prenom + "!";
         }
 		if (prenom.contains(",")&&!b) {
-            String[] nom =prenom.split(",");
             
-            if (nom.length == 2) {
-            	chaine.append(prenom.substring(0, 1).toUpperCase());
-    		    chaine.append(prenom.substring(1));
-            }
-            
-            else {
-                for (int i = 0; i < nom.length; i++) {
-                    chaine.append(" ").append(nom[i].trim());
-                    if (i == nom.length - 2) {
-                        chaine.append(", and");
-                    }
-                    else if (i < nom.length - 1) {
-                        chaine.append(",");
-                    }
-                }
-            }
-            return chaine.toString();
+			 StringBuilder sb = new StringBuilder();
+			    String[] arr = prenom.split(",");
+			    for (int i = 0; i < arr.length; i++) {
+			        String name = arr[i].trim();
+			        if (i == arr.length - 1 && i > 0) {
+			            sb.append(" and ");
+			        } else if (i > 0) {
+			            sb.append(", ");
+			        }
+			        sb.append(Character.toUpperCase(name.charAt(0))).append(name.substring(1).toLowerCase());
+			    }
+			    return chaine + sb.toString();
+        
 		}
 		
 		if(prenom.contains(",")&&b) {
@@ -92,6 +95,6 @@ public class Welcome {
 	}
 
 	public static void main (String[] args) {
-		System.out.println(welcome("Amy, BOB, Jerry"));
+		System.out.println(welcome("bob, yoda, amy, JERRY"));
 	}
 }
